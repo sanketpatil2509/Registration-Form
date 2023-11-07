@@ -1,0 +1,471 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Email validation</title>
+    
+    <script>
+        var name='(^[A-Z]{1,1})+([A-Za-z]{1,9})$';
+        function fun()
+        {
+            err.innerHTML="";
+            f1.uname.style.border="3px solid green";
+            msg1.innerHTML="Please fill User name";   
+            msg1.style.color="green";
+        }
+        function fun2()
+        {
+            msg1.innerHTML="";
+        }
+        function fun1()
+        {
+            var uname=f1.uname.value;
+            if(!uname.match(name))
+            {
+                f1.uname.value="";
+                f1.uname.focus();
+                msg1.innerHTML="Please fill correct UserName";
+                msg1.style.color="red";
+                uname.style.border="3px solid red";
+            }
+            else
+            {
+                err.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px'width='30px'>";
+                msg1.innerHTML="";
+                f1.mno.focus();
+            }
+        }
+
+        function sub()
+        {
+            //user name
+            var uname=f1.uname.value;
+            if(uname=="")
+            {
+                msg1.innerHTML="Enter user name";
+                msg1.style.color="red";
+                f1.uname.style.border="3px solid red";
+                return false;
+            }
+            else if(!uname.match(name))
+            {
+                f1.uname.value="";
+                f1.uname.focus();
+                msg1.innerHTML="Please fill correct UserName";
+                msg1.style.color="red";
+                uname.style.border="3px solid red";
+                return false;
+            }
+            else
+            {
+                err.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px'width='30px'>";
+                 msg1.innerHTML="";
+                 f1.mno.focus();
+            }
+            //mobile no
+           var contact='(^[7896]{1,1})+([0-9]{9,9})$';
+
+            var mno=f1.mno.value;
+            if(mno=="")
+            {
+                msg2.innerHTML="Enter user contact";
+                msg2.style.color="red";
+                f1.mno.style.border="3px solid red";
+                return false;
+            }
+            else if(!mno.match(contact))
+            {
+                f1.mno.value="";
+                f1.mno.focus();
+                msg2.innerHTML="Please fill correct User Mobile No";
+                msg2.style.color="red";
+                f1.mno.style.border="3px solid red"
+            }
+            else
+            {
+                err1.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg2.innerHTML="";
+                f1.email.focus();
+            }
+            //email
+            var p3='(^[a-z]{1,1})+([a-z0-9]{0,9})+([._]{0,1})([a-z0-9]{1,19})+([@]{1,1})([a-z]{2,19})+([.]{1,1})(com|co.in|in|usa|fr)$'
+
+            var email=f1.email.value;
+            if(email=="")
+            {
+                msg3.innerHTML="Enter user contact";
+                msg3.style.color="red";
+                f1.email.style.border="3px solid red";
+                return false;
+            }
+            else if(!mail.match(p3))
+            {
+                f1.email.value="";
+                f1.email.focus();
+                msg3.innerHTML="Please fill correct User Email";
+                msg3.style.color="red";
+                f1.email.style.border="3px solid red";
+                return false;
+            }
+            else
+            {
+                err2.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg3.innerHTML="";
+                f1.password.focus();
+            }
+            //password
+            var pa2='^([A-Za-z]{1,1})+([a-z0-9]{1,5})+([A-Z]{1,8})$';
+            var password=f1.password.value;
+            if(password=="")
+            {
+                msg4.innerHTML="Enter user password";
+                msg4.style.color="red";
+                f1.password.style.border="3px solid red";
+                return false;
+            }
+            else if(!password.match(pa2))
+            {
+                f1.password.value;
+                f1.password.focus();
+                msg4.innerHTML="Please fill correct password";
+                msg4.style.color="red";
+                f1.password.style.border="3px solid red";
+                return false;
+            }
+            else
+            {
+                err3.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg4.innerHTML="";
+                f1.cpassword.focus();
+            }
+            //conform password
+            var p2='^([A-Za-z]{1,1})+([a-z0-9]{1,5})+([A-Z]{1,8})$';
+
+            var cpassword=f1.cpassword.value;
+            if(cpassword=="")
+            {
+                msg4.innerHTML="Enter user conform password";
+                msg4.style.color="red";
+                f1.cpassword.style.border="3px solid red";
+                return false;
+            }
+            else if(!cpassword.match(p2))
+            {
+                f1.cpassword.value;
+                f1.cpassword.focus();
+                msg5.innerHTML="Please fill correct password";
+                msg5.style.color="red";
+                f1.cpassword.style.border="3px solid green";
+            }
+            else
+            {
+                err4.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg5.innerHTML="";
+                f1.gen.focus();
+            }
+
+            //var gender=f1.gen.value;
+            if(f1.gen[0].checked==false && f1.gen[1].checked==false)
+            {
+                msg6.innerHTML="<p style='color:red'>Please select gender</p>";
+                return false;
+            }
+            else
+            {
+                //err5.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg6.innerHTML="";
+            }
+
+            //hobbies
+            var count=0;
+            for(var i=0;i<f1.hobbies.length;i++)
+            {
+                if(f1.hobbies[i].checked==true)
+                {
+                    count++;
+                }
+            }
+            if(count==0)
+            {
+                msg7.innerHTML="<p style='color:red'>Please select hobbies</p>";
+                return false;
+            }
+            else
+            {
+                msg7.innerHTML="";
+            }
+
+            //select city validation
+            
+
+            if(f1.city[0].selected==true)
+            {
+                msg8.innerHTML="<p style='color:red'>Please select city</p>";
+                return false;
+            }
+            else
+            {
+                msg8.innerHTML="";
+            }
+        }
+        var contact='(^[7896]{1,1})+([0-9]{9,9})$';
+
+        function fun6()
+        {
+            err1.innerHTML="";
+            f1.mno.style.border="3px solid green";
+            msg2.innerHTML="Please fill User Mobile NO";   
+            msg2.style.color="green";
+        }
+        function fun8()
+        {
+            msg2.innerHTML="";
+        }
+        function fun7()
+        {
+            var mno=f1.mno.value;
+            if(!mno.match(contact))
+            {
+                f1.mno.value="";
+                f1.mno.focus();
+                msg2.innerHTML="Please fill correct User Mobile No";
+                msg2.style.color="red";
+                mno.style.border="3px solid red"
+            }
+            else
+            {
+                err1.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg2.innerHTML="";
+                f1.email.focus();
+            }
+        }
+        
+        var p3='(^[a-z]{1,1})+([a-z0-9]{0,9})+([._]{0,1})([a-z0-9]{1,19})+([@]{1,1})([a-z]{2,19})+([.]{1,1})(com|co.in|in|usa|fr)$'
+        function fun3()
+        {
+            err2.innerHTML="";
+            f1.email.style.border="3px solid green"
+            msg3.innerHTML="Please fill User Email";   
+            msg3.style.color="green";         
+        }
+        function fun5()
+        {
+            msg3.innerHTML="";
+        }
+        function fun4()
+        {
+            var mail=f1.email.value;
+            if(!mail.match(p3))
+            {
+                f1.email.value="";
+                f1.email.focus();
+                msg3.innerHTML="Please fill correct User Email";
+                msg3.style.color="red";
+                email.style.border="3px solid red";
+            }
+            else
+            {
+                err2.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg3.innerHTML="";
+                f1.password.focus();
+            }
+        }
+
+        var pa1='^([A-Za-z]{1,1})+([a-z0-9]{1,5})+([A-Z]{1,8})$';
+
+        function pass1()
+        {
+            err3.innerHTML="";
+            f1.password.style.border="3px solid green";
+            msg4.innerHTML="Please fill User Password";   
+            msg4.style.color="green";      
+        }
+        function pass3()
+        {
+            msg4.innerHTML="";
+        }
+
+        function pass2()
+        {
+            var pass=f1.password.value;
+            if(!pass.match(pa1))
+            {
+                f1.password.value;
+                f1.password.focus();
+                msg4.innerHTML="Please fill correct password";
+                msg4.style.color="red";
+                password.style.border="3px solid red";
+            }
+            else
+            {
+                err3.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg4.innerHTML="";
+                f1.cpassword.focus();
+            }
+        }
+
+        var p2='^([A-Za-z]{1,1})+([a-z0-9]{1,5})+([A-Z]{1,8})$';
+
+        function cpass1()
+        {
+            err4.innerHTML="";
+            f1.cpassword.style.border="3px solid green";
+            msg5.innerHTML="Please fill User Conform Password";   
+            msg5.style.color="green";      
+        }
+        function cpass3()
+        {
+            msg5.innerHTML="";
+        }
+
+        function cpass2()
+        {
+            var cpassword=f1.cpassword.value;
+            var password=f1.password.value;
+            if(!cpassword.match(password))
+            {
+                f1.cpassword.value;
+                f1.cpassword.focus();
+                msg5.innerHTML="Please fill correct password"
+                msg5.style.color="red";
+                cpassword.style.border="3px solid red";
+            }
+            else
+            {
+                err4.innerHTML="<img src='E:/javascript/img/tick-icon-30.png'height='30px' width='30px'>";
+                msg5.innerHTML="";
+                f1.gen.focus();
+            }
+        }
+
+    </script>
+</head>
+<body>
+    <style>
+        #star{
+            color: red;
+        }
+    </style>
+    <table align="center" cellpadding="7">
+        <caption><h1>Validation Form</h1></caption>
+        <form name="f1" action="success.html" onsubmit="return sub()">
+        <tr>
+            <td>Enter Name:-</td>
+            <td><input type="text"  name="uname"  onfocus="fun()" onblur="fun1()" onkeyup="fun2()" autocomplete="off"><td id="star">*</td></td>
+            <td id="err"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg1"></td>
+        </tr>
+        <tr>
+            <td>Enter Mobile No:-</td>
+            <td><input type="text"  name="mno" onfocus="fun6()" onblur="fun7()" onkeyup="fun8()" autocomplete="off"><td id="star">*</td></td>
+            <td id="err1"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg2"></td>
+        </tr>
+        <tr>
+            <td>Enter Email:-</td>
+            <td><input type="email" name="email"  onfocus="fun3()" onkeyup="fun5()" onblur="fun4()" autocomplete="off"><td id="star">*</td></td>
+            <td id="err2"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg3"></td>
+        </tr>
+        <tr>
+            <td>Enter Password:-</td>
+            <td><input type="password" name="password"  onfocus="pass1()" onkeyup="pass3()" onblur="pass2()" autocomplete="off"><td id="star">*</td></td>
+            <td id="err3"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg4"></td>
+        </tr>
+        <tr>
+            <td>Conform Password:-</td>
+            <td><input type="text" name="cpassword"  onfocus="cpass1()" onkeyup="cpass3()" onblur="cpass2()" autocomplete="off"><td id="star">*</td></td>
+            <td id="err4"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg5"></td>
+        </tr>
+        <tr>
+            <td>Select Gender:-</td>
+            <td><input type="radio" name="gen"
+                value="Male">Male<input type="radio" name="gen" value="Female">Female</td>
+                <td id="err5"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg6"></td>
+        </tr>
+        <tr>
+            <td>Hobbies</td>
+            <td>
+                <input type="checkbox" value="playing">playing
+                <input type="checkbox" value="reading">reading<br>
+                <input type="checkbox" value="watching movie">watching movie 
+            </td>
+            <td id="err6"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td id="msg7"></td>
+        </tr>
+        <tr>
+            <td>Enter City:-</td>
+            <td>
+                <select>
+                    <option>selete</option>
+                    <option>Pune</option>
+                    <option>Mumbai</option>
+                    <option>kolkata</option>
+                    <option>Nasik</option>
+                </select>
+            </td>
+            <td id="err7"></td>
+        </tr>   
+        <tr>
+            <td></td>
+            <td id="msg8"></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input  type="submit" value="Submit"></td>
+            <td><input type="reset" value="Reset"></td>
+        </tr>
+        </form>
+    </table>
+    <style>
+        body{
+            background-color: rgb(38, 179, 106);
+        }
+    </style>
+</body>
+</html>
+
+
+----------------------------------------------------------------------------
+ Success Page:
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1 style="color:green;text-align: center;">Thanks For Visit</h1>
+</body>
+</html>
+
+
